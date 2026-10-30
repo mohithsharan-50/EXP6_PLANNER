@@ -1,0 +1,302 @@
+/* =========================================
+   HOME DECOR PLANNER — STYLESHEET
+   ========================================= */
+
+/* ---------- Google Font & Reset ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:   #faf6f1;
+  --warm:    #f0e6d3;
+  --terracotta: #c1714f;
+  --terra-light: #e8977a;
+  --sage:    #7a9e7e;
+  --gold:    #c9a84c;
+  --dark:    #2c2417;
+  --mid:     #5e4b38;
+  --light:   #9e8a74;
+  --white:   #ffffff;
+  --shadow:  rgba(44,36,23,0.12);
+  --radius:  14px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: linear-gradient(135deg, #2c2417 0%, #5e3d2a 100%);
+  color: var(--white);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand-icon { font-size: 2.8rem; }
+.brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  letter-spacing: 0.5px;
+  color: #f5e8d0;
+}
+.tagline { font-size: 0.85rem; color: #b8a48a; margin-top: 3px; font-weight: 300; }
+
+.stats { display: flex; gap: 14px; }
+.stat-pill {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50px;
+  padding: 8px 20px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+.stat-pill.done-pill { background: rgba(122,158,126,0.25); border-color: var(--sage); }
+.stat-label { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 1px; color: #b8a48a; }
+.stat-value { font-size: 1.5rem; font-weight: 700; color: var(--white); }
+
+/* ---------- MAIN ---------- */
+main {
+  max-width: 780px;
+  width: 100%;
+  margin: 36px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+/* ---------- ADD FORM ---------- */
+.add-section {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  box-shadow: 0 4px 18px var(--shadow);
+  margin-bottom: 22px;
+  border-top: 4px solid var(--terracotta);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#categorySelect {
+  padding: 12px 14px;
+  border: 1.5px solid var(--warm);
+  border-radius: 10px;
+  background: var(--cream);
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: var(--mid);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+#categorySelect:focus { border-color: var(--terracotta); }
+
+#taskInput {
+  flex: 1;
+  min-width: 180px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--warm);
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: var(--cream);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#taskInput:focus {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px rgba(193,113,79,0.15);
+}
+#taskInput::placeholder { color: var(--light); }
+
+#addBtn {
+  padding: 12px 26px;
+  background: var(--terracotta);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+#addBtn:hover { background: #a8603f; }
+#addBtn:active { transform: scale(0.97); }
+
+/* ---------- FILTER TABS ---------- */
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-tabs { display: flex; gap: 6px; }
+
+.tab {
+  padding: 8px 20px;
+  border: 1.5px solid #ddd0c0;
+  background: var(--white);
+  border-radius: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+.tab:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.tab.active {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--white);
+}
+
+#clearDoneBtn {
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid #ddd0c0;
+  border-radius: 50px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  color: var(--light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#clearDoneBtn:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+  background: #fff5f5;
+}
+
+/* ---------- TASK LIST ---------- */
+.list-section { position: relative; }
+
+#taskList { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+/* --- Individual Task Card --- */
+.task-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s;
+  border-left: 5px solid transparent;
+  animation: slideIn 0.3s ease;
+}
+.task-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow); }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Category accent colors */
+.task-card[data-cat="Living Room"] { border-left-color: var(--terracotta); }
+.task-card[data-cat="Bedroom"]     { border-left-color: #9b7fc9; }
+.task-card[data-cat="Kitchen"]     { border-left-color: var(--gold); }
+.task-card[data-cat="Bathroom"]    { border-left-color: #5bafc4; }
+.task-card[data-cat="Garden"]      { border-left-color: var(--sage); }
+.task-card[data-cat="Lighting"]    { border-left-color: #e8c84a; }
+.task-card[data-cat="Art & Walls"] { border-left-color: #c47aad; }
+
+/* Done state */
+.task-card.done { opacity: 0.6; background: #fdf9f5; }
+.task-card.done .task-text { text-decoration: line-through; color: var(--light); }
+
+/* Checkbox */
+.task-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ccc0ad;
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  background: transparent;
+}
+.task-check:hover { border-color: var(--sage); }
+.task-check.checked { background: var(--sage); border-color: var(--sage); color: white; }
+
+/* Text area */
+.task-body { flex: 1; }
+.task-category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--light);
+  margin-bottom: 3px;
+}
+.task-text { font-size: 0.97rem; color: var(--dark); font-weight: 400; }
+
+/* Actions */
+.task-actions { display: flex; gap: 8px; opacity: 0; transition: opacity 0.2s; }
+.task-card:hover .task-actions { opacity: 1; }
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.del-btn:hover { background: #ffe5e5; }
+
+/* ---------- EMPTY STATE ---------- */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--light);
+}
+.empty-state span { font-size: 3.5rem; display: block; margin-bottom: 14px; }
+.empty-state p { font-size: 1rem; line-height: 1.7; }
+.hidden { display: none !important; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: var(--light);
+  border-top: 1px solid var(--warm);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  header { padding: 20px; }
+  .brand h1 { font-size: 1.4rem; }
+  .input-row { flex-direction: column; }
+  #addBtn { width: 100%; }
+  .task-actions { opacity: 1; }
+}
